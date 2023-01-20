@@ -63,4 +63,35 @@ function playRound(playerSelection, computerSelection) {
     return `You Tie! Both players chose ${player}`;
 }
 
-console.log(playRound("rock","rock"));
+function game(num_rounds)
+{
+    var player_score = 0;
+    var computer_score = 0;
+
+    for (i=0;i<num_rounds;i++) {
+        var compChoice = getComputerChoice();
+        var playerChoice = prompt("Do you choose paper, rock or scissors?");
+
+        var msg = playRound(playerChoice,compChoice);
+        console.log(msg);
+        var char = msg.substring(4,5);
+        if (char == "W") {
+            player_score++;
+        }
+        else if (char == "L") {
+            computer_score++;
+        }
+    }
+    if (player_score > computer_score)
+    {
+        window.alert(`You Win! Final score is ${player_score} - ${computer_score}`);
+    }
+    else if (computer_score > player_score) {
+        window.alert(`You Lose! Final score is ${player_score} - ${computer_score}`);
+    }
+    else {
+        window.alert(`Game is a Tie! Final score is ${player_score} - ${computer_score}`);
+    }
+}
+
+game(5);
