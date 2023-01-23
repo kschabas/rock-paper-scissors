@@ -35,3 +35,16 @@ button {
 #computer {
     flex: 1 1 0;
 }
+
+.user-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.user-message {
+    color: white;
+    font-size: 40px;
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}

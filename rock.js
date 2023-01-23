@@ -4,6 +4,7 @@ var computer_score = 0;
 
 function getComputerChoice() {
     var num = Math.floor(Math.random()*100)%3;
+    var text = `Computer chooses`
     if (num == 0) {
         return "Rock";
     }
@@ -22,6 +23,8 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     var player = playerSelection.toLowerCase();
     var comp = computerSelection.toLowerCase();
+
+    var text = `Computer chooses ${comp}. `;
 
     var winner = -1;
     if (player == "rock") {
@@ -57,14 +60,25 @@ function playRound(playerSelection, computerSelection) {
             winner = 0;
         }
     }
-
+    var msg = document.querySelector('.user-message');
     if (winner == 0) {
-        return `You Win! ${player} beats ${comp}`;
+        text += `You Win! ${player} beats ${comp}`;
+        msg.style.backgroundColor = 'green';
+        player_score++;
     }
-    if (winner == 1) {
-        return `You Lose! ${comp} beats ${player}`;
+    else if (winner == 1) {
+        text += `You Lose! ${comp} beats ${player}`;
+        msg.style.backgroundColor = 'red';
+        computer_score++;
     }
-    return `You Tie! Both players chose ${player}`;
+    else {
+        text +=  `You Tie! Both players chose ${player}`;
+        msg.style.backgroundColor = 'orange';
+    }
+    
+    msg.textContent = text;
+    document.querySelector('#player').textContent = `Player: ${player_score}`;
+    document.querySelector('#computer').textContent = `Player: ${computer_score}`;
 }
 
 const buttons= document.querySelectorAll('button');
