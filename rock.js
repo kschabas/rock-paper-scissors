@@ -1,3 +1,6 @@
+var player_score = 0;
+var computer_score = 0;
+
 function getComputerChoice() {
     var num = Math.floor(Math.random()*100)%3;
     if (num == 0) {
@@ -65,8 +68,7 @@ function playRound(playerSelection, computerSelection) {
 
 function game(num_rounds)
 {
-    var player_score = 0;
-    var computer_score = 0;
+    
 
     for (i=0;i<num_rounds;i++) {
         var compChoice = getComputerChoice();
@@ -94,4 +96,3 @@ function game(num_rounds)
     }
 }
 
-game(5);
