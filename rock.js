@@ -20,6 +20,14 @@ function getComputerChoice() {
     }
 }
 
+function playerWins() {
+    alert("You Win!!!");
+}
+
+function compWins() {
+    alert("You Lose!!!");
+}
+
 function playRound(playerSelection, computerSelection) {
     var player = playerSelection.toLowerCase();
     var comp = computerSelection.toLowerCase();
@@ -79,6 +87,15 @@ function playRound(playerSelection, computerSelection) {
     msg.textContent = text;
     document.querySelector('#player').textContent = `Player: ${player_score}`;
     document.querySelector('#computer').textContent = `Player: ${computer_score}`;
+
+    if (player_score == NUM_ROUNDS)
+    {
+        playerWins();
+    }
+    if (computer_score == NUM_ROUNDS)
+    {
+        compWins();
+    }
 }
 
 const buttons= document.querySelectorAll('button');
