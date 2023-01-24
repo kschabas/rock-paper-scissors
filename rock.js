@@ -86,7 +86,7 @@ function playRound(playerSelection, computerSelection) {
     
     msg.textContent = text;
     document.querySelector('#player').textContent = `Player: ${player_score}`;
-    document.querySelector('#computer').textContent = `Player: ${computer_score}`;
+    document.querySelector('#computer').textContent = `Computer: ${computer_score}`;
 
     if (player_score == NUM_ROUNDS)
     {
